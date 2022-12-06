@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="focus" />
+    <title>Cuci Helm LOSIK : Update Pelanggan</title>
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    <!-- Styles -->
+    <link href="{% static 'css/lib/calendar2/pignose.calendar.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/chartist/chartist.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/owl.carousel.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/lib/owl.theme.default.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/lib/weather-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/lib/menubar/sidebar.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lib/helper.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <ul>
+                    <div class="logo"><a href="">
+                            <!-- <img src="images/logo.png" alt="" /> --><span>CUCI HELM LOSIK</span></a></div>
+                    <li class="label">Main</li>
+                    <li><a href="{% url 'home' %}"><i class="ti-home"></i> Dashboard</a></li>
+
+                    <li class="label">Apps</li>
+
+                    <li><a href="{% url 'index' %}"><i class="ti-view-list-alt"></i> Daftar Pemesanan </a></li>
+                    <li><a href="{% url 'indexlayanan' %}"><i class="ti-view-list-alt"></i> Daftar Layanan</a></li>
+                  
+                    <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span
+                        class="sidebar-collapse-icon ti-angle-down"></span></a>
+                <ul>
+                    <li><a href="{% url 'createlayanan' %}">Tambah Layanan</a></li>
+                
+                 
+                    <li><a href="{% url 'rekap' %}">Rekap Penjualan</a></li>
+                </ul>  
+                 <div class="header">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="float-left">
+                                    <div class="hamburger sidebar-toggle">
+                                        <span class="line"></span>
+                                        <span class="line"></span>
+                                        <span class="line"></span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /# sidebar -->
+    <div class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="float-left">
+                        <div class="hamburger sidebar-toggle">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="float-right">
+                        <div class="dropdown dib">
+                            <div class="header-icon">
+                                    <a class="ti-user" href="{% url 'profile' %}" >
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Hello, <span>Welcome to Cuci Helm LOSIK </span></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                    <div class="col-lg-4 p-l-0 title-margin-left">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Daftar Pemesanan</a></li>
+                                    <li class="breadcrumb-item active">Update Pemesanan</li>
+                                    
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-title">
+                                        <h4>Perbarui Pemesanan</h4>
+                                        
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="basic-elements">
+                                            <form action="" method="post">
+                                                {% csrf_token %}
+                                                <table>
+                                                    <tr>
+                                                        <th>Jenis Layanan</th>
+                                                        <td>
+                                                            <select name="idlayanan" id="" class="form-control">
+                                                                {% for item in layanan %}
+                                                                    {% if item.idlayanan == pelanggan.idlayanan %}
+                                                                <option value="{{item.idlayanan}}" selected>{{item.jenislayanan}}</option>
+                                                                    {% else %}
+                                                                <option value="{{item.idlayanan}}">{{item.jenislayanan}}</option>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Nama</th>
+                                                        <td>
+                                                            <input required type="text" value="{{pelanggan.namapelanggan}}" name="namapelanggan"  class="form-control">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>No HP</th>
+                                                        <td>
+                                                            <input required type="text" value="{{pelanggan.nohp}}" name="nohp"  class="form-control">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Alamat</th>
+                                                        <td>
+                                                            <input required type="text" value="{{pelanggan.alamat}}" name="alamat"  class="form-control">
+                                                        </td>
+                                                    </tr>
+
+                                                        <th>Tanggal Pesan</th>
+                                                        <td>
+                                                            <input required  type="date" value="{{pelanggan.tanggalpesan}}.item" name="tanggalpesan" class="form-control"> 
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Status Cuci</th>
+                                                        <td>
+                                                            <select name="status" id="" class="form-control">
+                                                                <option value="Tercuci">Tercuci</option>
+                                                                <option value="Belum ">Belum Tercuci</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Status Helm</th>
+                                                        <td>
+                                                            <select name="helm" id="" class="form-control">
+                                                                <option value="Diambil">Diambil</option>
+                                                                <option value="Belum Diambil ">Belum Diambil</option>
+                                                                <option value="Sedang Diantar">Sedang Diantar</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <button type="submit" class ='btn btn-info'>Update</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- /# column -->
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="footer">
+                                <p>2018 © Admin Board. - <a href="#">www.cucihelmlosik.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery vendor -->
+    <script src="{% static 'js/lib/jquery.min.js' %}"></script>
+    <script src="{% static 'js/lib/jquery.nanoscroller.min.js' %}"></script>
+    <!-- nano scroller -->
+    <script src="{% static 'js/lib/menubar/sidebar.js' %}"></script>
+    <script src="{% static 'js/lib/preloader/pace.min.js' %}"></script>
+    <!-- sidebar -->
+
+    <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <!-- bootstrap -->
+
+    <script src="{% static 'js/lib/calendar-2/moment.latest.min.js' %}"></script>
+    <script src="{% static 'js/lib/calendar-2/pignose.calendar.min.js' %}"></script>
+    <script src="{% static 'js/lib/calendar-2/pignose.init.js' %}"></script>
+
+
+    <script src="{% static 'js/lib/weather/jquery.simpleWeather.min.js' %}"></script>
+    <script src="{% static 'js/lib/weather/weather-init.js' %}"></script>
+    <script src="{% static 'js/lib/circle-progress/circle-progress.min.js' %}"></script>
+    <script src="{% static 'js/lib/circle-progress/circle-progress-init.js' %}"></script>
+    <script src="{% static 'js/lib/chartist/chartist.min.js' %}"></script>
+    <script src="{% static 'js/lib/sparklinechart/jquery.sparkline.min.js' %}"></script>
+    <script src="{% static 'js/lib/sparklinechart/sparkline.init.js' %}"></script>
+    <script src="{% static 'js/lib/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/lib/owl-carousel/owl.carousel-init.js' %}"></script>
+    <!-- scripit init-->
+    <script src="{% static 'js/dashboard2.js' %}"></script>
+</body>
+
+</html>
+
+
+
